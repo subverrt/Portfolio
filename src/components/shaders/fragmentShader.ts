@@ -6,6 +6,8 @@ const fragmentShader = `
 
   uniform float uScroll;
 
+  uniform vec2 uResolution;
+
 
   varying vec2 vUv;
 
@@ -125,6 +127,27 @@ const fragmentShader = `
 
 
   /* =====================================
+     ROTATION
+     Used between fbm octaves so the noise doesn't read as
+     axis-aligned / grid-like at higher amplitudes.
+  ===================================== */
+
+  mat2 rotate2d(
+    float angle
+  ) {
+
+    float s = sin(angle);
+    float c = cos(angle);
+
+    return mat2(
+      c, -s,
+      s,  c
+    );
+
+  }
+
+
+  /* =====================================
      FBM
   ===================================== */
 
@@ -140,26 +163,23 @@ const fragmentShader = `
       0.5;
 
 
-    float frequency =
-      1.0;
+    mat2 rot =
+      rotate2d(0.5);
 
 
     for (
       int i = 0;
-      i < 5;
+      i < 6;
       i++
     ) {
 
       value +=
         amplitude *
-        noise(
-          st *
-          frequency
-        );
+        noise(st);
 
 
-      frequency *=
-        2.0;
+      st =
+        rot * st * 2.0;
 
 
       amplitude *=
@@ -169,6 +189,70 @@ const fragmentShader = `
 
 
     return value;
+
+  }
+
+
+  /* =====================================
+     STARS
+     A layer of small glowing points, each on its own twinkle
+     cycle. This is the single biggest visual change here — it
+     turns a flat color gradient into a scene with depth.
+  ===================================== */
+
+  float starLayer(
+    vec2 uv,
+    float density,
+    float twinkleSpeed
+  ) {
+
+    vec2 grid =
+      floor(uv * density);
+
+    vec2 cellUv =
+      fract(uv * density) - 0.5;
+
+
+    float seed =
+      random(grid);
+
+
+    // Only a small fraction of cells actually contain a star —
+    // this is what keeps them sparse instead of a solid layer.
+    float isStar =
+      step(0.982, seed);
+
+
+    // Random offset within the cell so stars don't sit in a
+    // perfect grid.
+    vec2 jitter =
+      vec2(
+        random(grid + 4.7),
+        random(grid + 9.3)
+      )
+      - 0.5;
+
+
+    float dist =
+      length(cellUv - jitter * 0.6);
+
+
+    float twinkle =
+      sin(
+        uTime * twinkleSpeed +
+        seed * 62.0
+      )
+      * 0.5
+      + 0.5;
+
+
+    float point =
+      smoothstep(0.09, 0.0, dist)
+      * isStar
+      * (0.35 + twinkle * 0.65);
+
+
+    return point;
 
   }
 
@@ -190,20 +274,20 @@ const fragmentShader = `
     vec2 movement =
       vec2(
         uTime *
-        0.06,
+        0.045,
 
         uTime *
-        0.035
+        0.03
       );
 
 
     vec2 scrollMovement =
       vec2(
         uScroll *
-        0.35,
+        0.3,
 
         uScroll *
-        0.15
+        0.12
       );
 
 
@@ -218,7 +302,7 @@ const fragmentShader = `
     float largeNoise =
       fbm(
         uv *
-        3.0 +
+        2.6 +
         movement
       );
 
@@ -238,7 +322,7 @@ const fragmentShader = `
       1.0 -
       smoothstep(
         0.0,
-        0.55,
+        0.6,
         mouseDistance
       );
 
@@ -252,7 +336,7 @@ const fragmentShader = `
       direction *
       mouseInfluence *
       largeNoise *
-      0.16;
+      0.14;
 
 
     /* =================================
@@ -262,7 +346,7 @@ const fragmentShader = `
     float n =
       fbm(
         uv *
-        4.0 +
+        3.6 +
         movement
       );
 
@@ -274,53 +358,47 @@ const fragmentShader = `
     float detail =
       fbm(
         uv *
-        8.0 -
+        7.5 -
         movement *
-        1.5
+        1.4
       );
 
 
     float fluid =
       n *
-      0.75 +
+      0.72 +
       detail *
-      0.25;
+      0.28;
+
+
+    /* =================================
+       ACCENT FIELD
+       A second, offset noise field used to place the cyan/teal
+       accent — purple + teal is a classic complementary pairing
+       that reads as far richer than a single-hue gradient.
+    ================================= */
+
+    float accentNoise =
+      fbm(
+        uv *
+        2.1
+        -
+        movement * 0.6
+        +
+        vec2(19.3, 7.1)
+      );
 
 
     /* =================================
        COLORS
     ================================= */
 
-    vec3 dark =
-      vec3(
-        0.005,
-        0.002,
-        0.015
-      );
-
-
-    vec3 purple =
-      vec3(
-        0.12,
-        0.015,
-        0.28
-      );
-
-
-    vec3 violet =
-      vec3(
-        0.30,
-        0.035,
-        0.55
-      );
-
-
-    vec3 pink =
-      vec3(
-        0.65,
-        0.08,
-        0.45
-      );
+    vec3 dark    = vec3(0.004, 0.003, 0.014);
+    vec3 indigo  = vec3(0.05,  0.02,  0.16);
+    vec3 violet  = vec3(0.16,  0.03,  0.42);
+    vec3 magenta = vec3(0.55,  0.07,  0.5);
+    vec3 gold    = vec3(0.95,  0.55,  0.35);
+    vec3 teal    = vec3(0.05,  0.35,  0.55);
 
 
     /* =================================
@@ -330,12 +408,8 @@ const fragmentShader = `
     vec3 color =
       mix(
         dark,
-        purple,
-        smoothstep(
-          0.15,
-          0.45,
-          fluid
-        )
+        indigo,
+        smoothstep(0.10, 0.38, fluid)
       );
 
 
@@ -343,24 +417,59 @@ const fragmentShader = `
       mix(
         color,
         violet,
-        smoothstep(
-          0.42,
-          0.68,
-          fluid
-        )
+        smoothstep(0.36, 0.62, fluid)
       );
 
 
     color =
       mix(
         color,
-        pink,
-        smoothstep(
-          0.68,
-          0.90,
-          fluid
-        )
+        magenta,
+        smoothstep(0.62, 0.86, fluid)
       );
+
+
+    // Teal accent patches, blended in wherever the accent noise
+    // field peaks — softly, so it reads as a color shift within
+    // the nebula rather than a separate patch of solid teal.
+    color +=
+      teal
+      * smoothstep(0.62, 0.92, accentNoise)
+      * 0.22;
+
+
+    // Gold highlight at the very brightest peaks — gives the eye
+    // a clear focal point instead of everything living in the
+    // same purple/pink range.
+    color =
+      mix(
+        color,
+        gold,
+        smoothstep(0.90, 1.05, fluid) * 0.35
+      );
+
+
+    /* =================================
+       DRIFTING LIGHT BANDS
+       Slow diagonal bands layered on top of the base noise for
+       a sense of depth and motion beyond the fluid noise alone.
+    ================================= */
+
+    float bands =
+      sin(
+        (uv.x + uv.y) * 6.0
+        +
+        uTime * 0.25
+      )
+      * 0.5
+      + 0.5;
+
+
+    color +=
+      vec3(0.05, 0.02, 0.08)
+      * bands
+      * fluid
+      * 0.35;
 
 
     /* =================================
@@ -380,9 +489,9 @@ const fragmentShader = `
 
     color +=
       vec3(
-        0.025,
-        0.005,
-        0.035
+        0.02,
+        0.004,
+        0.03
       )
       *
       scrollGlow
@@ -396,8 +505,8 @@ const fragmentShader = `
 
     vec2 lightPosition =
       vec2(
-        0.30,
-        0.35
+        0.32,
+        0.38
       );
 
 
@@ -412,16 +521,16 @@ const fragmentShader = `
       1.0 -
       smoothstep(
         0.0,
-        0.65,
+        0.7,
         lightDistance
       );
 
 
     color +=
       vec3(
-        0.10,
+        0.09,
         0.015,
-        0.15
+        0.14
       )
       *
       light
@@ -431,22 +540,50 @@ const fragmentShader = `
 
     /* =================================
        MOUSE LIGHT
+       Warmer and stronger than before — this should now feel
+       like a deliberate glow following the cursor, not a subtle
+       tint.
     ================================= */
 
     color +=
-      vec3(
-        0.16,
-        0.025,
-        0.18
-      )
+      gold
       *
       mouseInfluence
       *
       smoothstep(
-        0.0,
-        0.8,
+        0.2,
+        0.9,
         fluid
-      );
+      )
+      * 0.3;
+
+
+    /* =================================
+       STARS
+       Two layers — a dense field of faint distant stars, and a
+       sparser field of bigger, brighter ones for depth.
+    ================================= */
+
+    vec2 starUv =
+      vUv
+      +
+      scrollMovement * 0.4;
+
+
+    float starsFar =
+      starLayer(starUv, 55.0, 1.4);
+
+
+    float starsNear =
+      starLayer(starUv * 1.6 + 11.0, 22.0, 0.8);
+
+
+    color +=
+      vec3(0.85, 0.85, 0.95) * starsFar * 0.5;
+
+
+    color +=
+      vec3(0.95, 0.9, 1.0) * starsNear * 0.85;
 
 
     /* =================================
@@ -465,7 +602,7 @@ const fragmentShader = `
         vignetteUV
       )
       *
-      1.5;
+      1.1;
 
 
     vignette =
@@ -477,9 +614,9 @@ const fragmentShader = `
 
 
     color *=
-      0.75 +
+      0.82 +
       vignette *
-      0.35;
+      0.28;
 
 
     /* =================================
@@ -490,9 +627,36 @@ const fragmentShader = `
       pow(
         color,
         vec3(
-          0.90
+          0.92
         )
       );
+
+
+    /* =================================
+       GRAIN
+       Resolution-based (not just UV-based) so it looks like a
+       consistent film grain texture rather than stretching with
+       the viewport's aspect ratio. Stronger and more visible
+       than plain anti-banding dither — this is meant to be seen,
+       giving the whole thing a cinematic, slightly filmic feel.
+    ================================= */
+
+    float grain =
+      (
+        random(
+          vUv * uResolution
+          +
+          uTime * 60.0
+        )
+        -
+        0.5
+      )
+      *
+      0.035;
+
+
+    color +=
+      grain;
 
 
     gl_FragColor =

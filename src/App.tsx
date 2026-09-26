@@ -670,7 +670,7 @@ function App() {
             {/* RESUME */}
 
             <a
-              href="/src/assets/resume.pdf"
+              href="/public/resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="contact-link"
