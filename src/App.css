@@ -3,15 +3,10 @@
 ========================================= */
 
 :root {
-  --font-main:
-    "Inter",
-    sans-serif;
+  --font-main: "Inter", sans-serif;
 
-  --font-mono:
-    "IBM Plex Mono",
-    monospace;
+  --font-mono: "IBM Plex Mono", monospace;
 }
-
 
 /* =========================================
    APP
@@ -26,10 +21,8 @@
 
   overflow-x: hidden;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 }
-
 
 /* =========================================
    NAVBAR
@@ -45,8 +38,7 @@
 
   height: 90px;
 
-  padding:
-    0 40px;
+  padding: 0 40px;
 
   display: flex;
 
@@ -57,22 +49,17 @@
   z-index: 10;
 }
 
-
 .logo {
   color: white;
 
   text-decoration: none;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 1rem;
 
   font-weight: 600;
-
-  letter-spacing: 0.05em;
 }
-
 
 .nav-links {
   display: flex;
@@ -82,20 +69,12 @@
   gap: 35px;
 }
 
-
 .nav-links a {
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.65
-    );
+  color: rgba(255, 255, 255, 0.65);
 
   text-decoration: none;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 0.8rem;
 
@@ -105,15 +84,12 @@
 
   text-transform: uppercase;
 
-  transition:
-    color 0.3s ease;
+  transition: color 0.3s ease;
 }
-
 
 .nav-links a:hover {
   color: white;
 }
-
 
 /* =========================================
    HERO
@@ -132,8 +108,7 @@
 
   margin: 0 auto;
 
-  padding:
-    120px 40px 45px;
+  padding: 120px 40px 45px;
 
   display: flex;
 
@@ -147,7 +122,6 @@
      real 3D depth instead of a flat skew. See the tilt effect in App.tsx. */
   perspective: 1200px;
 }
-
 
 /* =========================================
    HERO GRID
@@ -165,39 +139,19 @@
   opacity: 0.12;
 
   background-image:
-    linear-gradient(
-      rgba(
-        255,
-        255,
-        255,
-        0.04
-      ) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(
-        255,
-        255,
-        255,
-        0.04
-      ) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 
-  background-size:
-    80px 80px;
+  background-size: 80px 80px;
 
-  mask-image:
-    linear-gradient(
-      to bottom,
-      transparent,
-      black 20%,
-      black 80%,
-      transparent
-    );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
 }
-
 
 /* =========================================
    HERO CENTER GLOW
@@ -220,32 +174,16 @@
 
   top: 45%;
 
-  transform:
-    translate(
-      -50%,
-      -50%
-    );
+  transform: translate(-50%, -50%);
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(
-        150,
-        40,
-        255,
-        0.10
-      ),
-      transparent 65%
-    );
+  background: radial-gradient(circle, rgba(150, 40, 255, 0.1), transparent 65%);
 
-  filter:
-    blur(30px);
+  filter: blur(30px);
 
   pointer-events: none;
 }
-
 
 /* =========================================
    HERO META
@@ -264,27 +202,18 @@
 
   gap: 14px;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.55rem;
 
   letter-spacing: 0.14em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.38
-    );
+  color: rgba(255, 255, 255, 0.38);
 }
-
 
 .hero-meta-left {
   left: 40px;
 }
-
 
 .hero-meta-right {
   right: 40px;
@@ -292,21 +221,13 @@
   gap: 25px;
 }
 
-
 .hero-meta-line {
   width: 45px;
 
   height: 1px;
 
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.3
-    );
+  background: rgba(255, 255, 255, 0.3);
 }
-
 
 /* =========================================
    HERO CONTENT
@@ -332,7 +253,6 @@
   will-change: transform;
 }
 
-
 /* =========================================
    HERO EYEBROW ROW
 ========================================= */
@@ -347,27 +267,17 @@
   margin-bottom: 28px;
 }
 
-
-.hero-eyebrow-row
-.eyebrow {
+.hero-eyebrow-row .eyebrow {
   margin: 0;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.62rem;
 
   letter-spacing: 0.18em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.48
-    );
+  color: rgba(255, 255, 255, 0.48);
 }
-
 
 /* =========================================
    HERO STATUS
@@ -380,22 +290,14 @@
 
   gap: 9px;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.62rem;
 
   letter-spacing: 0.15em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.38
-    );
+  color: rgba(255, 255, 255, 0.38);
 }
-
 
 .status-dot {
   width: 5px;
@@ -404,50 +306,27 @@
 
   border-radius: 50%;
 
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.8
-    );
+  background: rgba(255, 255, 255, 0.8);
 
-  box-shadow:
-    0 0 12px
-    rgba(
-      255,
-      255,
-      255,
-      0.8
-    );
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
 
-  animation:
-    statusPulse
-    2s
-    ease-in-out
-    infinite;
+  animation: statusPulse 2s ease-in-out infinite;
 }
 
-
 @keyframes statusPulse {
-
   0%,
   100% {
     opacity: 0.35;
 
-    transform:
-      scale(0.8);
+    transform: scale(0.8);
   }
 
   50% {
     opacity: 1;
 
-    transform:
-      scale(1.2);
+    transform: scale(1.2);
   }
-
 }
-
 
 /* =========================================
    HERO TITLE
@@ -459,7 +338,6 @@
   width: 100%;
 }
 
-
 .hero-index {
   position: absolute;
 
@@ -467,22 +345,14 @@
 
   top: -35px;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.55rem;
 
   letter-spacing: 0.12em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.32
-    );
+  color: rgba(255, 255, 255, 0.32);
 }
-
 
 /* =========================================
    TITLE MASK + SHINE SWEEP
@@ -498,7 +368,6 @@
   width: 100%;
 }
 
-
 .hero-title-shine {
   position: absolute;
 
@@ -510,15 +379,14 @@
 
   height: 100%;
 
-  background:
-    linear-gradient(
-      75deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0) 35%,
-      rgba(255, 255, 255, 0.55) 50%,
-      rgba(255, 255, 255, 0) 65%,
-      transparent 100%
-    );
+  background: linear-gradient(
+    75deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0) 65%,
+    transparent 100%
+  );
 
   mix-blend-mode: overlay;
 
@@ -527,7 +395,6 @@
   z-index: 3;
 }
 
-
 .hero h1 {
   position: relative;
 
@@ -535,15 +402,9 @@
 
   padding-right: 0.08em;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
-  font-size:
-    clamp(
-      7rem,
-      18vw,
-      17rem
-    );
+  font-size: clamp(7rem, 18vw, 17rem);
 
   line-height: 0.72;
 
@@ -551,19 +412,12 @@
 
   font-weight: 500;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.96
-    );
+  color: rgba(255, 255, 255, 0.96);
 
   white-space: nowrap;
 
   user-select: none;
 }
-
 
 /* =========================================
    TITLE SHADOW / DEPTH
@@ -580,26 +434,14 @@
 
   z-index: -1;
 
-  color:
-    rgba(
-      150,
-      40,
-      255,
-      0.12
-    );
+  color: rgba(150, 40, 255, 0.12);
 
-  transform:
-    translate(
-      10px,
-      18px
-    );
+  transform: translate(10px, 18px);
 
-  filter:
-    blur(18px);
+  filter: blur(18px);
 
   pointer-events: none;
 }
-
 
 /* =========================================
    CHAR / WORD MASKS
@@ -632,7 +474,6 @@
   line-height: 1.15;
 }
 
-
 .char {
   display: inline-block;
 
@@ -643,7 +484,6 @@
   will-change: transform;
 }
 
-
 .word-mask {
   display: inline-block;
 
@@ -652,13 +492,11 @@
   vertical-align: top;
 }
 
-
 .word {
   display: inline-block;
 
   will-change: transform;
 }
-
 
 /* =========================================
    TITLE LINE
@@ -671,29 +509,17 @@
 
   margin-top: 32px;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(
-        255,
-        255,
-        255,
-        0.35
-      ),
-      rgba(
-        255,
-        255,
-        255,
-        0.08
-      ),
-      transparent
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
 
   transform-origin: left;
 
   /* Scale-in is driven by the GSAP timeline (see App.tsx). */
 }
-
 
 /* =========================================
    HERO BOTTOM
@@ -711,7 +537,6 @@
   max-width: 1100px;
 }
 
-
 /* =========================================
    DESCRIPTION
 ========================================= */
@@ -724,30 +549,20 @@
   gap: 13px;
 }
 
-
 .hero-description-label {
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.5rem;
 
   letter-spacing: 0.14em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.28
-    );
+  color: rgba(255, 255, 255, 0.28);
 }
-
 
 .hero-description {
   margin: 0;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 0.9rem;
 
@@ -755,15 +570,8 @@
 
   letter-spacing: -0.015em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.55
-    );
+  color: rgba(255, 255, 255, 0.55);
 }
-
 
 /* =========================================
    HERO BUTTON
@@ -785,33 +593,17 @@
 
   min-width: 230px;
 
-  padding:
-    17px 0;
+  padding: 17px 0;
 
   color: white;
 
   text-decoration: none;
 
-  border-top:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.28
-    );
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
 
-  border-bottom:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.28
-    );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.57rem;
 
@@ -828,66 +620,36 @@
   will-change: transform;
 }
 
-
 .hero-button-number {
   opacity: 0.35;
 }
 
-
 .hero-button-text {
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.75
-    );
+  color: rgba(255, 255, 255, 0.75);
 }
 
-
 .hero-button-arrow {
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 1rem;
 
   text-align: right;
 
-  transition:
-    transform 0.4s ease;
+  transition: transform 0.4s ease;
 }
-
 
 .hero-button:hover {
   padding-left: 14px;
 
   padding-right: 14px;
 
-  border-color:
-    rgba(
-      255,
-      255,
-      255,
-      0.55
-    );
+  border-color: rgba(255, 255, 255, 0.55);
 
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.025
-    );
+  background: rgba(255, 255, 255, 0.025);
 }
 
-
-.hero-button:hover
-.hero-button-arrow {
-  transform:
-    translate(
-      5px,
-      -5px
-    );
+.hero-button:hover .hero-button-arrow {
+  transform: translate(5px, -5px);
 }
 
 /* =========================================
@@ -895,7 +657,6 @@
 ========================================= */
 
 .hero-orbit {
-
   position: absolute;
 
   right: 7%;
@@ -906,57 +667,32 @@
 
   height: 120px;
 
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.10
-    );
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
   border-radius: 50%;
 
-  transform:
-    translateY(-50%)
-    rotate(-25deg);
+  transform: translateY(-50%) rotate(-25deg);
 
   pointer-events: none;
 
-  animation:
-    heroOrbit
-    18s
-    linear
-    infinite;
+  animation: heroOrbit 18s linear infinite;
 }
 
-
 .hero-orbit::before {
-
   content: "";
 
   position: absolute;
 
   inset: 25px -20px;
 
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.07
-    );
+  border: 1px solid rgba(255, 255, 255, 0.07);
 
   border-radius: 50%;
 
-  transform:
-    rotate(65deg);
+  transform: rotate(65deg);
 }
 
-
 .hero-orbit span {
-
   position: absolute;
 
   width: 5px;
@@ -967,19 +703,10 @@
 
   background: white;
 
-  box-shadow:
-    0 0 14px
-    rgba(
-      255,
-      255,
-      255,
-      0.7
-    );
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.7);
 }
 
-
 .hero-orbit span:first-child {
-
   position: absolute;
 
   left: 0;
@@ -990,27 +717,14 @@
 
   opacity: 1;
 
-  offset-path:
-    ellipse(
-      119.5px
-      59.5px
-      at
-      50%
-      50%
-    );
+  offset-path: ellipse(119.5px 59.5px at 50% 50%);
 
   offset-anchor: 50% 50%;
 
-  animation:
-    firstOrbit
-    18s
-    linear
-    infinite;
+  animation: firstOrbit 18s linear infinite;
 }
 
-
 @keyframes firstOrbit {
-
   from {
     offset-distance: 0%;
   }
@@ -1018,7 +732,6 @@
   to {
     offset-distance: 100%;
   }
-
 }
 
 .hero-orbit span:last-child {
@@ -1029,33 +742,31 @@
   height: 5px;
   opacity: 1;
 
-  offset-path: path("M179.167 186.883 A140 35 65 1 0 60.833 -66.883 A140 35 65 1 0 179.167 186.883");
+  offset-path: path(
+    "M179.167 186.883 A140 35 65 1 0 60.833 -66.883 A140 35 65 1 0 179.167 186.883"
+  );
   offset-anchor: 50% 50%;
 
   animation: secondOrbit 18s linear infinite;
 }
 
 @keyframes secondOrbit {
-  from { offset-distance: 0%; }
-  to   { offset-distance: 100%; }
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
 }
 
 @keyframes heroOrbit {
-
   from {
-
-    transform:
-      translateY(-50%)
-      rotate(-25deg);
+    transform: translateY(-50%) rotate(-25deg);
   }
 
   to {
-
-    transform:
-      translateY(-50%)
-      rotate(335deg);
+    transform: translateY(-50%) rotate(335deg);
   }
-
 }
 /* =========================================
    HERO SCROLL
@@ -1076,67 +787,41 @@
 
   gap: 12px;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.5rem;
 
   letter-spacing: 0.14em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.35
-    );
+  color: rgba(255, 255, 255, 0.35);
 }
-
 
 .hero-scroll-line {
   width: 35px;
 
   height: 1px;
 
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.3
-    );
+  background: rgba(255, 255, 255, 0.3);
 }
 
-
 .hero-scroll-arrow {
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 0.8rem;
 
-  animation:
-    heroScrollArrow
-    2s
-    ease-in-out
-    infinite;
+  animation: heroScrollArrow 2s ease-in-out infinite;
 }
 
-
 @keyframes heroScrollArrow {
-
   0%,
   100% {
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
   50% {
-    transform:
-      translateY(5px);
+    transform: translateY(5px);
   }
-
 }
-
 
 /* =========================================
    SCROLL INDICATOR
@@ -1155,52 +840,33 @@
 
   gap: 15px;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.55rem;
 
   letter-spacing: 0.18em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.4
-    );
+  color: rgba(255, 255, 255, 0.4);
 }
 
-
 .scroll-arrow {
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 0.9rem;
 
-  animation:
-    scrollArrow
-    2s
-    ease-in-out
-    infinite;
+  animation: scrollArrow 2s ease-in-out infinite;
 }
 
-
 @keyframes scrollArrow {
-
   0%,
   100% {
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
   50% {
-    transform:
-      translateY(5px);
+    transform: translateY(5px);
   }
-
 }
-
 
 /* =========================================
    GENERIC SECTION LABEL
@@ -1209,8 +875,7 @@
 .section-label {
   margin: 0;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.6rem;
 
@@ -1218,15 +883,8 @@
 
   letter-spacing: 0.16em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.4
-    );
+  color: rgba(255, 255, 255, 0.4);
 }
-
 
 /* =========================================
    ABOUT
@@ -1243,8 +901,7 @@
 
   margin: 0 auto;
 
-  padding:
-    120px 40px 45px;
+  padding: 120px 40px 45px;
 
   display: flex;
 
@@ -1252,7 +909,6 @@
 
   justify-content: space-between;
 }
-
 
 /* =========================================
    ABOUT HEADER
@@ -1266,26 +922,17 @@
   align-items: center;
 }
 
-
 .about-location {
   margin: 0;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.6rem;
 
   letter-spacing: 0.15em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.35
-    );
+  color: rgba(255, 255, 255, 0.35);
 }
-
 
 /* =========================================
    ABOUT MAIN
@@ -1297,7 +944,6 @@
   overflow: visible;
 }
 
-
 .about-main h2 {
   margin: 0;
 
@@ -1305,15 +951,9 @@
 
   overflow: visible;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
-  font-size:
-    clamp(
-      4rem,
-      9vw,
-      9rem
-    );
+  font-size: clamp(4rem, 9vw, 9rem);
 
   line-height: 0.85;
 
@@ -1322,21 +962,13 @@
   font-weight: 500;
 }
 
-
 /* Scoped to the highlight span specifically (not a bare "h2 span"
    selector) so it only colors "for the web." — a bare selector would
    also catch every .char-mask/.char span used for the letter-reveal,
    turning the whole heading gray. */
 .about-main h2 .about-highlight {
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.3
-    );
+  color: rgba(255, 255, 255, 0.3);
 }
-
 
 /* =========================================
    ABOUT CONTENT
@@ -1354,18 +986,14 @@
   gap: 100px;
 }
 
-
 .about-description {
   max-width: 560px;
 }
 
-
 .about-description p {
-  margin:
-    0 0 25px;
+  margin: 0 0 25px;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 0.9rem;
 
@@ -1373,31 +1001,16 @@
 
   letter-spacing: -0.01em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.5
-    );
+  color: rgba(255, 255, 255, 0.5);
 }
 
-
-.about-description
-.about-intro {
+.about-description .about-intro {
   font-size: 1.15rem;
 
   line-height: 1.6;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.85
-    );
+  color: rgba(255, 255, 255, 0.85);
 }
-
 
 /* =========================================
    ABOUT STATS
@@ -1410,56 +1023,29 @@
     1fr
     1fr;
 
-  border-top:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.15
-    );
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
-
 
 .about-stat {
   min-height: 140px;
 
-  padding:
-    25px 20px 25px 0;
+  padding: 25px 20px 25px 0;
 
-  border-bottom:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.15
-    );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
-
 
 .about-stat:nth-child(odd) {
-  border-right:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.15
-    );
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
-
 
 .about-stat:nth-child(even) {
   padding-left: 25px;
 }
 
-
 .about-stat strong {
   display: block;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 2rem;
 
@@ -1468,28 +1054,19 @@
   letter-spacing: -0.05em;
 }
 
-
 .about-stat span {
   display: block;
 
   margin-top: 8px;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.55rem;
 
   letter-spacing: 0.12em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.35
-    );
+  color: rgba(255, 255, 255, 0.35);
 }
-
 
 /* =========================================
    ABOUT FOOTER
@@ -1504,31 +1081,16 @@
 
   padding-top: 25px;
 
-  border-top:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.15
-    );
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.55rem;
 
   letter-spacing: 0.12em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.35
-    );
+  color: rgba(255, 255, 255, 0.35);
 }
-
 
 /* =========================================
    PROJECTS
@@ -1545,10 +1107,8 @@
 
   margin: 0 auto;
 
-  padding:
-    120px 40px;
+  padding: 120px 40px;
 }
-
 
 /* =========================================
    PROJECT HEADER
@@ -1563,36 +1123,20 @@
 
   padding-bottom: 30px;
 
-  border-bottom:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.15
-    );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
-
 
 .project-count {
   margin: 0;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.6rem;
 
   letter-spacing: 0.1em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.35
-    );
+  color: rgba(255, 255, 255, 0.35);
 }
-
 
 /* =========================================
    PROJECT CARD
@@ -1609,16 +1153,8 @@
 
   min-height: 600px;
 
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.15
-    );
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
-
 
 /* =========================================
    PROJECT VISUAL
@@ -1637,19 +1173,12 @@
 
   justify-content: center;
 
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(
-        150,
-        50,
-        255,
-        0.18
-      ),
-      transparent 55%
-    );
+  background: radial-gradient(
+    circle at center,
+    rgba(150, 50, 255, 0.18),
+    transparent 55%
+  );
 }
-
 
 .flight-glow {
   position: absolute;
@@ -1660,37 +1189,28 @@
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(
-        170,
-        70,
-        255,
-        0.3
-      ),
-      transparent 70%
-    );
+  background: radial-gradient(circle, rgba(170, 70, 255, 0.3), transparent 70%);
 
-  filter:
-    blur(15px);
+  filter: blur(15px);
 }
-
 
 .flight-icon {
   position: relative;
-
   z-index: 2;
 
-  font-family:
-    var(--font-main);
+  font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
 
   font-size: 5rem;
+  line-height: 1;
 
-  transform:
-    rotate(-15deg);
+  color: white;
+
+  transform: rotate(-15deg);
+
+  font-variant-emoji: text;
+
+  -webkit-font-smoothing: antialiased;
 }
-
 
 /* =========================================
    PROJECT LABEL
@@ -1703,22 +1223,14 @@
 
   left: 30px;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.6rem;
 
   letter-spacing: 0.15em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.4
-    );
+  color: rgba(255, 255, 255, 0.4);
 }
-
 
 /* =========================================
    PROJECT ORBITS
@@ -1731,14 +1243,7 @@
 
   top: 50%;
 
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.18
-    );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 
   border-radius: 50%;
 
@@ -1748,7 +1253,6 @@
 
   will-change: transform;
 }
-
 
 /* =========================================
    ORBIT ONE
@@ -1763,16 +1267,10 @@
 
   margin-top: -90px;
 
-  transform:
-    rotate(-25deg);
+  transform: rotate(-25deg);
 
-  animation:
-    orbitOne
-    18s
-    linear
-    infinite;
+  animation: orbitOne 18s linear infinite;
 }
-
 
 /* =========================================
    ORBIT TWO
@@ -1787,16 +1285,10 @@
 
   margin-top: -110px;
 
-  transform:
-    rotate(35deg);
+  transform: rotate(35deg);
 
-  animation:
-    orbitTwo
-    24s
-    linear
-    infinite;
+  animation: orbitTwo 24s linear infinite;
 }
-
 
 /* =========================================
    ORBIT THREE
@@ -1811,65 +1303,44 @@
 
   margin-top: -140px;
 
-  transform:
-    rotate(-55deg);
+  transform: rotate(-55deg);
 
-  animation:
-    orbitThree
-    30s
-    linear
-    infinite;
+  animation: orbitThree 30s linear infinite;
 }
-
 
 /* =========================================
    ORBIT ANIMATIONS
 ========================================= */
 
 @keyframes orbitOne {
-
   from {
-    transform:
-      rotate(-25deg);
+    transform: rotate(-25deg);
   }
 
   to {
-    transform:
-      rotate(335deg);
+    transform: rotate(335deg);
   }
-
 }
-
 
 @keyframes orbitTwo {
-
   from {
-    transform:
-      rotate(35deg);
+    transform: rotate(35deg);
   }
 
   to {
-    transform:
-      rotate(-325deg);
+    transform: rotate(-325deg);
   }
-
 }
-
 
 @keyframes orbitThree {
-
   from {
-    transform:
-      rotate(-55deg);
+    transform: rotate(-55deg);
   }
 
   to {
-    transform:
-      rotate(305deg);
+    transform: rotate(305deg);
   }
-
 }
-
 
 /* =========================================
    PROJECT INFO
@@ -1884,45 +1355,27 @@
 
   justify-content: space-between;
 
-  border-left:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.15
-    );
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
-
 
 .project-meta {
   display: flex;
 
   justify-content: space-between;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.55rem;
 
   letter-spacing: 0.1em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.35
-    );
+  color: rgba(255, 255, 255, 0.35);
 }
 
-
 .project-info h3 {
-  margin:
-    50px 0 25px;
+  margin: 50px 0 25px;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 4rem;
 
@@ -1933,12 +1386,10 @@
   font-weight: 500;
 }
 
-
 .project-description {
   max-width: 480px;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 0.85rem;
 
@@ -1946,15 +1397,8 @@
 
   letter-spacing: -0.01em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.5
-    );
+  color: rgba(255, 255, 255, 0.5);
 }
-
 
 /* =========================================
    PROJECT TAGS
@@ -1970,36 +1414,19 @@
   margin-top: 30px;
 }
 
-
 .project-tags span {
-  padding:
-    7px 10px;
+  padding: 7px 10px;
 
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.18
-    );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.55rem;
 
   letter-spacing: 0.08em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.5
-    );
+  color: rgba(255, 255, 255, 0.5);
 }
-
 
 /* =========================================
    PROJECT ACTIONS
@@ -2015,7 +1442,6 @@
   justify-content: space-between;
 }
 
-
 .project-link {
   display: flex;
 
@@ -2027,40 +1453,28 @@
 
   text-decoration: none;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.6rem;
 
   letter-spacing: 0.12em;
 }
 
-
 .project-link span {
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 1rem;
 }
 
-
 .project-type {
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.55rem;
 
   letter-spacing: 0.12em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.3
-    );
+  color: rgba(255, 255, 255, 0.3);
 }
-
 
 /* =========================================
    CONTACT
@@ -2073,8 +1487,7 @@
 
   min-height: 100vh;
 
-  padding:
-    120px 7vw 38px;
+  padding: 120px 7vw 38px;
 
   display: flex;
 
@@ -2087,7 +1500,6 @@
   margin: 0 auto;
 }
 
-
 /* =========================================
    CONTACT TOP
 ========================================= */
@@ -2096,7 +1508,6 @@
   width: 100%;
 }
 
-
 .contact-label {
   display: flex;
 
@@ -2104,8 +1515,7 @@
 
   gap: 14px;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.82rem;
 
@@ -2115,30 +1525,16 @@
 
   text-transform: uppercase;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.42
-    );
+  color: rgba(255, 255, 255, 0.42);
 }
-
 
 .contact-line {
   width: 50px;
 
   height: 1px;
 
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.38
-    );
+  background: rgba(255, 255, 255, 0.38);
 }
-
 
 /* =========================================
    CONTACT MAIN
@@ -2150,17 +1546,13 @@
   display: grid;
 
   grid-template-columns:
-    minmax(
-      0,
-      1fr
-    )
+    minmax(0, 1fr)
     340px;
 
   align-items: end;
 
   gap: 80px;
 }
-
 
 /* =========================================
    CONTACT TITLE
@@ -2181,27 +1573,15 @@
 
   align-items: flex-start;
 
-  gap:
-    clamp(
-      30px,
-      5vw,
-      20px
-    );
+  gap: clamp(30px, 5vw, 20px);
 }
-
 
 .contact-title h2 {
   margin: 0;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
-  font-size:
-    clamp(
-      7rem,
-      15vw,
-      15rem
-    );
+  font-size: clamp(7rem, 15vw, 15rem);
 
   line-height: 0.72;
 
@@ -2209,28 +1589,15 @@
 
   font-weight: 500;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.96
-    );
+  color: rgba(255, 255, 255, 0.96);
 }
-
 
 .contact-title h3 {
   margin: 0;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
-  font-size:
-    clamp(
-      4rem,
-      9vw,
-      9rem
-    );
+  font-size: clamp(4rem, 9vw, 9rem);
 
   line-height: 0.8;
 
@@ -2238,15 +1605,8 @@
 
   font-weight: 400;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.30
-    );
+  color: rgba(255, 255, 255, 0.3);
 }
-
 
 /* =========================================
    CONTACT LINKS
@@ -2260,7 +1620,6 @@
   margin-bottom: 8px;
 }
 
-
 .contact-link {
   width: 100%;
 
@@ -2272,21 +1631,13 @@
 
   justify-content: space-between;
 
-  border-top:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.25
-    );
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 
   color: white;
 
   text-decoration: none;
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   font-size: 1 rem;
 
@@ -2298,51 +1649,25 @@
     border-color 0.35s ease;
 }
 
-
 .contact-link:last-child {
-  border-bottom:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.25
-    );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+.contact-link > span:first-child {
+  color: rgba(255, 255, 255, 0.65);
 
-.contact-link
-> span:first-child {
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.65
-    );
-
-  transition:
-    color 0.3s ease;
+  transition: color 0.3s ease;
 }
-
 
 .contact-arrow {
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.45
-    );
+  color: rgba(255, 255, 255, 0.45);
 
-  font-family:
-    var(--font-main);
+  font-family: var(--font-main);
 
   transition:
     transform 0.35s ease,
     color 0.3s ease;
 }
-
 
 /* =========================================
    CONTACT HOVER
@@ -2351,33 +1676,18 @@
 .contact-link:hover {
   padding-left: 10px;
 
-  border-color:
-    rgba(
-      255,
-      255,
-      255,
-      0.5
-    );
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-
-.contact-link:hover
-> span:first-child {
+.contact-link:hover > span:first-child {
   color: white;
 }
 
-
-.contact-link:hover
-.contact-arrow {
+.contact-link:hover .contact-arrow {
   color: white;
 
-  transform:
-    translate(
-      4px,
-      -4px
-    );
+  transform: translate(4px, -4px);
 }
-
 
 /* =========================================
    CONTACT FOOTER
@@ -2388,14 +1698,7 @@
 
   padding-top: 24px;
 
-  border-top:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.22
-    );
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
 
   display: flex;
 
@@ -2403,22 +1706,14 @@
 
   justify-content: space-between;
 
-  font-family:
-    var(--font-mono);
+  font-family: var(--font-mono);
 
   font-size: 0.82rem;
 
   letter-spacing: 0.12em;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.38
-    );
+  color: rgba(255, 255, 255, 0.38);
 }
-
 
 .contact-location {
   display: flex;
@@ -2428,51 +1723,31 @@
   gap: 14px;
 }
 
-
 .footer-line {
   width: 36px;
 
   height: 1px;
 
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.35
-    );
+  background: rgba(255, 255, 255, 0.35);
 }
-
 
 .live-time {
   margin-left: 4px;
 
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.75
-    );
+  color: rgba(255, 255, 255, 0.75);
 
-  font-variant-numeric:
-    tabular-nums;
+  font-variant-numeric: tabular-nums;
 }
-
 
 .contact-year {
   opacity: 0.75;
 }
 
-
 /* =========================================
    TABLET
 ========================================= */
 
-@media (
-  max-width: 1000px
-) {
-
+@media (max-width: 1000px) {
   .contact-main {
     grid-template-columns:
       1fr
@@ -2481,63 +1756,34 @@
     gap: 50px;
   }
 
-
   .contact-title h2 {
-    font-size:
-      clamp(
-        6rem,
-        13vw,
-        10rem
-      );
+    font-size: clamp(6rem, 13vw, 10rem);
   }
-
 
   .contact-title h3 {
-    font-size:
-      clamp(
-        3.5rem,
-        8vw,
-        7rem
-      );
+    font-size: clamp(3.5rem, 8vw, 7rem);
   }
-
 
   .project-card {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
-
 
   .project-visual {
     min-height: 450px;
   }
 
-
   .project-info {
     border-left: none;
 
-    border-top:
-      1px solid
-      rgba(
-        255,
-        255,
-        255,
-        0.15
-      );
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
-
 }
-
 
 /* =========================================
    MOBILE
 ========================================= */
 
-@media (
-  max-width: 768px
-) {
-
-
+@media (max-width: 768px) {
   /* =====================================
      NAVIGATION
   ===================================== */
@@ -2545,44 +1791,32 @@
   .navbar {
     height: 75px;
 
-    padding:
-      0 20px;
+    padding: 0 20px;
   }
-
 
   .nav-links {
     gap: 15px;
   }
 
-
   .nav-links a {
     font-size: 0.55rem;
   }
-
 
   /* =====================================
      HERO
   ===================================== */
 
   .hero {
-    padding:
-      105px 20px 40px;
+    padding: 105px 20px 40px;
   }
 
-
   .hero h1 {
-    font-size:
-      clamp(
-        4.5rem,
-        21vw,
-        8rem
-      );
+    font-size: clamp(4.5rem, 21vw, 8rem);
 
     line-height: 0.8;
 
     padding-right: 0.1em;
   }
-
 
   .hero-orbit {
     right: 6%;
@@ -2592,24 +1826,23 @@
     opacity: 0.72;
   }
 
-
   .hero-orbit::before {
     inset: 12px -12px;
   }
 
-
-  .hero-orbit span {
+  .hero-orbit span:first-child {
     width: 5px;
     height: 5px;
     offset-path: ellipse(75px 38px at 50% 50%);
   }
 
-
   .hero-orbit span:last-child {
-    width: 3px;
-    height: 3px;
+    width: 5px;
+    height: 5px;
+    offset-path: path(
+      "M111.766 116.848 A87 26 65 1 0 38.234 -40.848 A87 26 65 1 0 111.766 116.848"
+    );
   }
-
 
   .hero-bottom {
     margin-top: 60px;
@@ -2621,12 +1854,9 @@
     gap: 35px;
   }
 
-
   .hero-description {
     font-size: 0.75rem;
   }
-
-
 
   /* =====================================
      ABOUT
@@ -2635,15 +1865,12 @@
   .about-section {
     min-height: auto;
 
-    padding:
-      100px 20px 35px;
+    padding: 100px 20px 35px;
   }
-
 
   .about-header {
     align-items: flex-start;
   }
-
 
   .about-location {
     font-size: 0.5rem;
@@ -2651,54 +1878,39 @@
     text-align: right;
   }
 
-
   .about-main {
     margin-top: 80px;
   }
 
-
   .about-main h2 {
-    font-size:
-      clamp(
-        3.5rem,
-        15vw,
-        6rem
-      );
+    font-size: clamp(3.3rem, 15vw, 6rem);
 
     padding-right: 0.1em;
   }
 
-
   .about-content {
     margin-top: 70px;
 
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
     gap: 60px;
   }
-
 
   .about-description p {
     font-size: 0.78rem;
   }
 
-
-  .about-description
-  .about-intro {
+  .about-description .about-intro {
     font-size: 1rem;
   }
-
 
   .about-stat {
     min-height: 110px;
   }
 
-
   .about-stat strong {
     font-size: 1.5rem;
   }
-
 
   .about-footer {
     margin-top: 70px;
@@ -2712,7 +1924,6 @@
     line-height: 1.5;
   }
 
-
   /* =====================================
      PROJECTS
   ===================================== */
@@ -2720,25 +1931,20 @@
   .projects-section {
     min-height: auto;
 
-    padding:
-      100px 20px;
+    padding: 100px 20px;
   }
-
 
   .project-card {
     margin-top: 35px;
   }
 
-
   .project-visual {
     min-height: 350px;
   }
 
-
   .project-info {
     padding: 30px;
   }
-
 
   .project-info h3 {
     font-size: 3rem;
@@ -2746,16 +1952,13 @@
     margin-top: 40px;
   }
 
-
   .project-description {
     font-size: 0.78rem;
   }
 
-
   .project-actions {
     margin-top: 40px;
   }
-
 
   /* =====================================
      CONTACT
@@ -2764,10 +1967,8 @@
   .contact-section {
     min-height: 100vh;
 
-    padding:
-      90px 20px 25px;
+    padding: 90px 20px 25px;
   }
-
 
   .contact-main {
     display: flex;
@@ -2779,37 +1980,23 @@
     gap: 70px;
   }
 
-
   .contact-title {
     gap: 45px;
   }
 
-
   .contact-title h2 {
-    font-size:
-      clamp(
-        5rem,
-        22vw,
-        9rem
-      );
+    font-size: clamp(5rem, 22vw, 9rem);
 
     line-height: 0.75;
   }
 
-
   .contact-title h3 {
     margin: 0;
 
-    font-size:
-      clamp(
-        3rem,
-        13vw,
-        6rem
-      );
+    font-size: clamp(3rem, 13vw, 6rem);
 
     line-height: 0.8;
   }
-
 
   .contact-links {
     width: 100%;
@@ -2817,24 +2004,19 @@
     max-width: none;
   }
 
-
   .contact-link {
     min-height: 58px;
   }
-
 
   .contact-footer {
     font-size: 0.5rem;
   }
 
-
   .contact-location {
     gap: 8px;
   }
 
-
   .footer-line {
     width: 22px;
   }
-
 }
