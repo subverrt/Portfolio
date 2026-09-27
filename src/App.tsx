@@ -49,9 +49,34 @@ function SplitWords({ text }: { text: string }) {
   );
 }
 
+/*
+ * FLIGHT ICON
+ * A single, consistent airplane silhouette (Material Design's
+ * well-known "flight" glyph) rendered as inline SVG with
+ * fill="currentColor" — renders identically on every device, unlike
+ * the system emoji "✈" it replaces (each OS ships a different emoji
+ * font; Android's glyph for this one is a visibly different jet
+ * silhouette than Windows/macOS).
+ *
+ * The horizontal flip (so the nose points right instead of left) is
+ * baked directly into the path's own coordinate space via the inner
+ * <g transform="scale(-1,1) ...">, NOT via a CSS transform on the
+ * element — this is what makes it safe to also apply a fixed CSS
+ * `rotate()` on .flight-icon (see App.css) without the two fighting
+ * each other visually.
+ */
+function FlightIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2.5 1.5V22l4-1 4 1v-1.5L13 19v-5.5l8 2.5z" />
+    </svg>
+  );
+}
+
 function App() {
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
 
   /*
    * LIVE CLOCK
@@ -324,6 +349,80 @@ function App() {
     { scope: aboutRef }
   );
 
+  /*
+   * FLIGHT ICON — ENTRANCE + CONTINUOUS CLIMB
+   * On scroll into view, the glow and icon fade/scale in (their fixed
+   * "/" diagonal tilt is set once in CSS on .flight-icon and is never
+   * touched by any animation here, so it never rotates or wobbles).
+   * Once that settles, the icon loops a continuous upward climb: it
+   * rises and fades out near the top, then resets below the frame and
+   * fades back in — a seamless "taking off" loop, always moving up,
+   * never bobbing back down.
+   */
+  useGSAP(
+    () => {
+      const icon = projectsRef.current?.querySelector<HTMLElement>(
+        ".flight-icon"
+      );
+      const glow = projectsRef.current?.querySelector<HTMLElement>(
+        ".flight-glow"
+      );
+      if (!icon || !glow) return;
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (prefersReducedMotion) {
+        gsap.set([icon, glow], { clearProps: "all" });
+        return;
+      }
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: projectsRef.current,
+          start: "top 65%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.from(glow, {
+        scale: 0.4,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      })
+        .from(
+          icon,
+          {
+            scale: 0.5,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+          },
+          "<0.1"
+        )
+        .add(() => {
+          gsap
+            .timeline({ repeat: -1 })
+            .to(icon, {
+              y: -40,
+              opacity: 0,
+              duration: 2.2,
+              ease: "power1.in",
+            })
+            .set(icon, { y: 20, opacity: 0 })
+            .to(icon, {
+              y: 0,
+              opacity: 1,
+              duration: 1.4,
+              ease: "power1.out",
+            });
+        });
+    },
+    { scope: projectsRef }
+  );
+
   return (
     <main className="app">
       {/* =====================================
@@ -467,7 +566,7 @@ function App() {
               <div className="about-stat">
                 <strong>OPEN</strong>
 
-                <span> TO WORK</span>
+                <span>TO WORK</span>
               </div>
 
               <div className="about-stat">
@@ -485,7 +584,7 @@ function App() {
               <div className="about-stat">
                 <strong>4+</strong>
 
-                <span>PROJECTs</span>
+                <span>PROJECTS</span>
               </div>
             </div>
           </div>
@@ -502,7 +601,7 @@ function App() {
           PROJECTS
       ===================================== */}
 
-      <section id="work" className="projects-section">
+      <section id="work" className="projects-section" ref={projectsRef}>
         <div className="projects-header">
           <p className="section-label">02 — SELECTED WORK</p>
 
@@ -538,7 +637,9 @@ function App() {
 
             <div className="flight-glow" />
 
-            <div className="flight-icon">✈</div>
+            <div className="flight-icon">
+              <FlightIcon />
+            </div>
 
             <span className="visual-label">FLY HIGH</span>
           </div>
@@ -670,7 +771,7 @@ function App() {
             {/* RESUME */}
 
             <a
-              href="/public/resume.pdf"
+              href="/resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="contact-link"

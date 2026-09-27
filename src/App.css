@@ -1194,22 +1194,42 @@
   filter: blur(15px);
 }
 
+/* =========================================
+   FLIGHT ICON
+   Renders the FlightIcon SVG component from App.tsx via
+   fill="currentColor" — the horizontal flip (nose pointing right) is
+   baked into the SVG's own path data, not a CSS transform, so a
+   static `rotate()` here is completely safe (no fighting with GSAP,
+   since GSAP no longer touches rotation at all — see App.tsx).
+
+   `rotate(-30deg)` tilts the nose up-and-to-the-right, matching a
+   "/" diagonal — this is a FIXED, permanent tilt. The only thing
+   GSAP animates on this element now is `y` (a continuous upward
+   climb loop) and `opacity`; rotation never changes.
+========================================= */
+
 .flight-icon {
   position: relative;
+
   z-index: 2;
 
-  font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
+  width: 88px;
 
-  font-size: 5rem;
-  line-height: 1;
+  height: 88px;
 
-  color: white;
+  color: rgba(255, 255, 255, 0.92);
 
-  transform: rotate(-15deg);
+  transform: rotate(30deg);
 
-  font-variant-emoji: text;
+  filter: drop-shadow(0 0 18px rgba(200, 120, 255, 0.45));
+}
 
-  -webkit-font-smoothing: antialiased;
+.flight-icon svg {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
 }
 
 /* =========================================
@@ -1639,7 +1659,7 @@
 
   font-family: var(--font-main);
 
-  font-size: 1 rem;
+  font-size: 1rem;
 
   font-weight: 400;
 
