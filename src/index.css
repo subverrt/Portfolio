@@ -1,38 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap");
+@import "tailwindcss";
 
-* {
-  margin: 0;
+@layer base {
+  :root {
+    --font-sans: "Inter", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+  }
 
-  padding: 0;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  box-sizing: border-box;
-}
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+  }
 
-html,
-body,
-#root {
-  width: 100%;
+  body {
+    background: #000;
+    color: white;
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
 
-  min-height: 100%;
-}
-
-body {
-  background: #000;
-
-  color: white;
-
-  overflow-x: hidden;
-
-  font-family:
-    "Inter",
-    sans-serif;
-
-  -webkit-font-smoothing:
-    antialiased;
-
-  -moz-osx-font-smoothing:
-    grayscale;
-
-  text-rendering:
-    optimizeLegibility;
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+    }
+  }
 }

@@ -1,5 +1,15 @@
 # React + TypeScript + Vite
 
+## Styling
+
+This portfolio uses Tailwind CSS v4 through the Vite plugin. Global reset,
+font tokens, responsive utility support, and the shader layer are loaded from
+`src/index.css`. The existing selectors in `src/App.css` are intentionally
+kept inside Tailwind's `components` layer so the GSAP animation hooks,
+custom masks, gradients, and orbit paths keep their original behavior while
+being processed by the Tailwind pipeline. New layout and one-off styling
+should use Tailwind utility classes directly in JSX.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

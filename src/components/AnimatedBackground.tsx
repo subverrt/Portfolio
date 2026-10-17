@@ -156,13 +156,7 @@ function Scene() {
 export default function AnimatedBackground() {
   return (
     <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        width: "100vw",
-        height: "100vh",
-        zIndex: 0,
-      }}
+      className="fixed inset-0 z-0 h-screen w-screen"
     >
       <Canvas
         orthographic
